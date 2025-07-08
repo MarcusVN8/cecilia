@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Animação para surgimento suave das seções */
+        .page {
+            display: none; /* Todas as páginas começam escondidas */
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .page.active {
+            display: block; /* A página ativa é mostrada */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilo para a linha do tempo */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -31px;
+            width: 12px;
+            height: 12px;
+            background-color: #f472b6;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            z-index: 1;
+        }
+        /* Animação para a tela de senha */
+        #password-screen.unlocked {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-rose-50 text-gray-700">
+
+    <!-- =================================================================== -->
+    <!-- TELA DE SENHA                                                       -->
+    <!-- =================================================================== -->
+    <div id="password-screen" class="fixed inset-0 bg-gradient-to-br from-rose-100 to-pink-200 z-50 flex flex-col items-center justify-center p-4">
+        <div class="text-center bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-2xl max-w-sm w-full">
+            <h2 class="font-display text-3xl text-pink-800 mb-4">Um presente para você</h2>
+            <p class="text-gray-600 mb-6">Digite a data do nosso primeiro beijo.</p>
+            <form id="password-form"> 
+                <input type="password" id="password-input" class="w-full p-3 rounded-lg border-2 border-rose-200 text-center focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="DD/MM/AAAA">
+                <p id="password-error" class="text-red-500 text-sm mt-2 h-4"></p>
+                <button type="submit" class="w-full mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Entrar 💖
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- =================================================================== -->
+    <!-- 1. PÁGINA INICIAL                                                     -->
+    <!-- =================================================================== -->
+    <section id="page-home" class="page">
+        <div class="min-h-screen w-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-rose-100 to-pink-200">
+            <div class="text-center">
+                <h1 class="font-display text-4xl md:text-6xl mb-8 text-pink-800">
+                    <!-- EDITE A FRASE ABAIXO -->
+                    Há 3 anos, eu descobri o que é amar de verdade...
+                </h1>
+                
+                <!-- Container para as fotos -->
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-8">
+                    <img src="https://i.imgur.com/SC7BBgV.jpeg" alt="Foto do casal na praia" class="w-64 h-80 md:w-72 md:h-96 object-cover rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 rotate-[-3deg]">
+                    <img src="https://i.imgur.com/VCutxHd.jpeg" alt="Foto do casal na rede" class="w-64 h-80 md:w-72 md:h-96 object-cover rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300 rotate-[3deg]">
+                </div>
+
+                <button onclick="showPage('page-timeline')" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Clique para relembrar nossa história 💖
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 2. LINHA DO TEMPO                                                   -->
+    <!-- =================================================================== -->
+    <section id="page-timeline" class="page">
+        <div class="container mx-auto p-6 md:p-12">
+            <h2 class="font-display text-4xl md:text-5xl text-center text-pink-500 mb-12">Nossa Linha do Tempo</h2>
+            <div class="relative border-l-2 border-pink-200 ml-4 md:ml-0 md:mx-auto md:w-4/5 lg:w-2/3">
+                <!-- EDITE OS ITENS DA LINHA DO TEMPO ABAIXO -->
+                
+                <!-- Item 1 -->
+                <div class="mb-12 ml-8 relative timeline-item">
+                    <h3 class="font-display text-2xl text-pink-600">Primeiro Beijo</h3>
+                    <p class="text-sm text-gray-500 mb-2">16 de novembro de 2021</p>
+                    <img src="https://i.imgur.com/YbBt6Em.jpeg" alt="Foto do primeiro beijo" class="rounded-lg shadow-md my-3 w-full md:w-2/3">
+                    <p>O dia em que tudo começou. Um simples beijo que mudou nossas vidas para sempre. Lembro do seu sorriso nervoso e de como meu coração acelerou.</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="mb-12 ml-8 relative timeline-item">
+                    <h3 class="font-display text-2xl text-pink-600">Primeiro "Eu Te Amo"</h3>
+                    <p class="text-sm text-gray-500 mb-2">12 de junho de 2022</p>
+                    <p>As palavras mais sinceras que já saíram da minha boca. Dizer "eu te amo" para você foi a coisa mais natural do mundo, porque meu coração já gritava isso há tempos.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="mb-12 ml-8 relative timeline-item">
+                    <h3 class="font-display text-2xl text-pink-600">Nossa Primeira Viagem</h3>
+                    <p class="text-sm text-gray-500 mb-2">Janeiro de 2023</p>
+                    <img src="https://i.imgur.com/1VymeXe.jpeg" alt="Foto da primeira viagem do casal" class="rounded-lg shadow-md my-3 w-full md:w-2/3">
+                    <p>A primeira de muitas aventuras! Cada momento naquela praia foi mágico, colecionando memórias que guardo com todo carinho.</p>
+                </div>
+                
+                <!-- Adicione mais itens aqui -->
+
+            </div>
+            <div class="text-center mt-12">
+                <button onclick="showPage('page-letter')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Uma cartinha para você 💌
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 4. CARTA VIRTUAL                                                    -->
+    <!-- =================================================================== -->
+    <section id="page-letter" class="page">
+        <div class="min-h-screen flex flex-col items-center justify-center p-6">
+            <h2 class="font-display text-4xl md:text-5xl text-center text-pink-500 mb-12">De coração, para você</h2>
+            <div class="bg-white p-8 md:p-12 rounded-lg shadow-xl max-w-2xl w-full">
+                <p id="letter-text" class="text-lg leading-relaxed" style="white-space: pre-wrap;"></p>
+            </div>
+             <div class="text-center mt-12">
+                <button onclick="showPage('page-gallery')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Nossas Memórias em Fotos 📷
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 5. GALERIA DE FOTOS                                                 -->
+    <!-- =================================================================== -->
+    <section id="page-gallery" class="page">
+        <div class="container mx-auto p-6 md:p-12">
+            <h2 class="font-display text-4xl md:text-5xl text-center text-pink-500 mb-12">Galeria de Momentos</h2>
+            <!-- A galeria será preenchida pelo JavaScript -->
+            <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8"></div>
+            <div class="text-center mt-12">
+                <button onclick="showPage('page-future')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    O que o futuro nos reserva? ✨
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 7. O FUTURO                                                         -->
+    <!-- =================================================================== -->
+    <section id="page-future" class="page">
+        <div class="min-h-screen flex flex-col items-center justify-center p-6">
+            <h2 class="font-display text-4xl md:text-5xl text-center text-pink-500 mb-12">O Futuro com Você</h2>
+            <div class="max-w-2xl w-full space-y-6">
+                <!-- EDITE OS DESEJOS ABAIXO -->
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <span class="text-3xl">✈️</span>
+                    <p class="text-lg">Viajar o mundo e colecionar carimbos no passaporte e memórias no coração.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <span class="text-3xl">🏡</span>
+                    <p class="text-lg">Ter nossa casinha com um quintal, dois filhos e 1 cachorro.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <span class="text-3xl">👵🏼👴🏼</span>
+                    <p class="text-lg">Ficar velhinhos juntos, reclamando do mundo e cuidando um do outro.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button onclick="showPage('page-home')" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Rever tudo de novo ❤️
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal da Galeria (para ver a foto maior) -->
+    <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-80 items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-lg shadow-2xl max-w-3xl w-full p-4 relative">
+            <button onclick="closeGalleryModal()" class="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-lg hover:bg-rose-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <img id="modal-img" src="" alt="Memória" class="w-full h-auto max-h-[80vh] object-contain rounded-md mb-2">
+            <p id="modal-caption" class="text-center text-gray-600"></p>
+        </div>
+    </div>
+
+
+    <script>
+    // =================================================================== //
+    // ================= ÁREA DE EDIÇÃO DO CONTEÚDO ====================== //
+    // =================================================================== //
+
+    // 1. SENHA
+    const secretPassword = "16/11/2021"; 
+
+    // 4. TEXTO DA CARTA
+    const letterContent = `Oi, meu amor.\n\nHoje a gente completa 3 anos. Três anos que passaram voando, mas que deixaram tanta coisa bonita pra trás, que parece que a gente viveu o dobro. E sabe o que é mais louco? Ainda sinto aquele frio na barriga quando te vejo sorrir.\n\nÉ engraçado lembrar de como tudo começou. No sexto ano a gente mal se falava, e por um bom tempo talvez nem tivesse nada ali… até que um dia, do nada, eu vi um story teu no Instagram e pensei: “caralho, tá gata pra krl ein”. E foi ali que, sem querer, começou uma história que hoje eu não trocaria por nada.\n\nA gente já passou por muita coisa — desde silêncios por orgulho até momentos que parecem cena de filme. Mas, acima de tudo, a gente cresceu. E isso é o que me deixa mais feliz: ver o quanto nós dois amadurecemos juntos. Você me fez (e me faz) ser alguém melhor. E só de olhar pra você, já me dá vontade de conquistar o mundo.\n\nEu admiro cada detalhe teu. Teu jeito de ver além, de planejar o futuro com coragem. Eu amo estar do teu lado. Não precisa de ocasião especial: só de estar junto, seja na tua casa, na minha, na rua ou numa viagem qualquer… eu sinto que estou exatamente onde eu deveria estar.\n\nCom você eu aprendi a amar de verdade. Aprendi a lidar com sentimentos, a respirar fundo e a ter paciência. Com você eu cresci como homem. E é por isso que eu sonho com o que ainda vem: casamento, filhos, viagens, domingos preguiçosos… e sim, nossa praia no nosso casamento — esse detalhe é inegociável!\n\nObrigado por não desistir de nós. Por tentar, por evoluir, por cuidar. Por ser parceira mesmo quando é difícil. Prometo estar sempre aqui. Do seu lado. Cuidando de você, fazendo o possível (e o impossível) pra te ver sorrir.\n\nTrês anos. E ainda é só o começo.\n\nTe amo minha futura esposa!`;
+
+    // 5. FOTOS DA GALERIA
+    const galleryItems = [
+        { img: "https://i.imgur.com/JWz4xyD.jpeg", caption: "Foto que achei engraçada" },
+        { img: "https://i.imgur.com/ANYN2KL.jpeg", caption: "Momento engraçado de dois malucos" },
+        { img: "https://i.imgur.com/TjJikSz.jpeg", caption: "Momento que eu estava muito bem em suas pernocas" },
+        { img: "https://i.imgur.com/vlMeIhb.jpeg", caption: "Simplesmente eu te amando" },
+        // Adicione mais fotos aqui
+    ];
+
+    // =================================================================== //
+    // =================== LÓGICA DO SITE (NÃO EDITE) ==================== //
+    // =================================================================== //
+
+    let currentPage = 'page-home';
+    let letterInterval;
+
+    // Lógica da Senha
+    const passwordForm = document.getElementById('password-form');
+    const passwordInput = document.getElementById('password-input');
+    const passwordError = document.getElementById('password-error');
+    const passwordScreen = document.getElementById('password-screen');
+
+    passwordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (passwordInput.value === secretPassword) {
+            passwordScreen.classList.add('unlocked');
+            showPage('page-home');
+        } else {
+            passwordError.textContent = 'Senha incorreta. Tente novamente!';
+            passwordInput.value = '';
+        }
+    });
+
+    // Função para trocar de página
+    function showPage(pageId) {
+        const newPage = document.getElementById(pageId);
+        if (!newPage) return;
+
+        if (letterInterval) {
+            clearInterval(letterInterval);
+        }
+
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        newPage.classList.add('active');
+        currentPage = pageId;
+
+        if (pageId === 'page-letter') {
+            typeWriter('letter-text', letterContent, 30);
+        }
+    }
+
+    // Função do efeito máquina de escrever
+    function typeWriter(elementId, text, speed) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        element.innerHTML = '';
+        let i = 0;
+
+        letterInterval = setInterval(() => {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(letterInterval);
+            }
+        }, speed);
+    }
+    
+    // Lógica da Galeria
+    const galleryGrid = document.getElementById('gallery-grid');
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+
+    galleryItems.forEach((item) => {
+        const itemContainer = document.createElement('div');
+        itemContainer.className = 'group cursor-pointer';
+        itemContainer.onclick = () => openGalleryModal(item);
+
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'overflow-hidden rounded-lg shadow-md';
+        
+        const imgElement = document.createElement('img');
+        imgElement.src = item.img;
+        imgElement.alt = item.caption;
+        imgElement.className = 'w-full h-full object-cover aspect-square transform transition-transform duration-300 group-hover:scale-110';
+        
+        imgContainer.appendChild(imgElement);
+
+        const captionContainer = document.createElement('div');
+        captionContainer.className = 'mt-2 text-center px-1';
+        
+        const captionElement = document.createElement('p');
+        captionElement.className = 'text-sm text-gray-700 truncate group-hover:whitespace-normal';
+        captionElement.textContent = item.caption;
+        
+        captionContainer.appendChild(captionElement);
+
+        itemContainer.appendChild(imgContainer);
+        itemContainer.appendChild(captionContainer);
+        
+        galleryGrid.appendChild(itemContainer);
+    });
+
+    function openGalleryModal(item) {
+        modalImg.src = item.img;
+        modalCaption.textContent = item.caption;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeGalleryModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    </script>
+</body>
+</html>
